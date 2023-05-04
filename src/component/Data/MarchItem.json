@@ -1,0 +1,18 @@
+[
+  {
+    "id": 5,
+    "title": "T-shirt",
+    "price": 19.99,
+    "colors": ["red", "black", "crimson", "teal"],
+    "des": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea totam, id, placeat nobis omnis commodi quidem consequuntur adipisci doloremque facere nam laudantium porro quisquam? Id ex voluptate odit sunt quos.",
+    "imageUrl": "https://raw.githubusercontent.com/prasadyash2411/ecom-website/main/img/Shirt.png"
+  },
+  {
+    "id": 6,
+    "title": "Coffee Cup",
+    "price": 6.99,
+    "colors": ["red", "black", "crimson", "teal"],
+    "des": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea totam, id, placeat nobis omnis commodi quidem consequuntur adipisci doloremque facere nam laudantium porro quisquam? Id ex voluptate odit sunt quos.",
+    "imageUrl": "https://raw.githubusercontent.com/Krish1116/Shopping-cart/main/src/data/coffee.jpg"
+  }
+]

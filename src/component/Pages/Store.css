@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@1,600&display=swap");
+
+body {
+  overflow-x: hidden;
+}
+.title {
+  background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
+  height: 134px !important;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+}
+
+.title h1 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 100px;
+  color: white;
+}
+
+.music-title-container {
+  /* font-family: "Dancing Script", cursive; */
+  font-family: "Gelasio", serif;
+  position: relative;
+  top: 100px;
+  display: flex;
+  font-size: 70px;
+  justify-content: center;
+}
+
+.merch-title-container {
+  /* font-family: "Dancing Script", cursive; */
+  font-family: "Gelasio", serif;
+  position: relative;
+  top: -12rem;
+  left: -10rem;
+  display: flex;
+  font-size: 100px;
+  justify-content: center;
+}
+
+.custom-item {
+  margin-top: 20% !important;
+}
+
+.product-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 124%;
+}
+
+.cart-button {
+  display: block !important;
+  text-align: center !important;
+  position: absolute;
+  margin-top: -8%;
+  right: 33%;
+  width: 35%;
+  color: rgba(0, 0, 0, 0.55) !important;
+  font-weight: bold !important;
+  font-size: large !important;
+  background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
+  border: 3px solid black !important;
+}
+
+.cart-button:hover {
+  display: block !important;
+  text-align: center !important;
+  position: absolute;
+  margin-top: -8%;
+  right: 33%;
+  width: 35%;
+  color: rgba(0, 0, 0, 0.788) !important;
+  font-weight: bold !important;
+  font-size: large !important;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  border: 3px solid #205874 !important;
+}
