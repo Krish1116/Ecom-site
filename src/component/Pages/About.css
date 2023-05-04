@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@1,600&display=swap");
+
+.title {
+  background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
+  height: 134px;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+}
+
+.title h1 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 100px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.about {
+  font-family: "Gelasio", serif;
+  position: relative;
+  top: 100px;
+  display: flex;
+  font-size: 70px;
+  justify-content: center;
+}
+
+.about-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 20px 50px;
+  float: left;
+  position: absolute;
+  top: 56%;
+}
+
+.para {
+  position: absolute;
+  right: 22%;
+  top: 60%;
+  width: 57%;
+  left: 32%;
+  font-size: 17px;
+  color: #777;
+}
+.para-1 {
+  position: absolute;
+  top: 97%;
+  left: 10%;
+  width: 81%;
+  font-size: 17px;
+  color: #777;
+}
