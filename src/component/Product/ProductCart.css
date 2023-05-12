@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@1,600&display=swap");
+
+.cart-body {
+  overflow-y: hidden;
+  max-height: 450px;
+}
+.cart-name {
+  font-family: "Gelasio", serif;
+  font-weight: bold !important;
+  font-size: 50px !important;
+  position: relative;
+  right: -34%;
+  top: 14%;
+}
+
+.empty-cart {
+  background-image: url("https://vividparts.com/site_assets/images/empty_cart.gif");
+  position: absolute;
+  right: -63px;
+  background-repeat: no-repeat;
+  opacity: 1;
+  width: 100%;
+  height: 306px;
+}
+
+.purchase {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+
+.purchase-button {
+  width: 194px;
+  position: absolute;
+  right: 24%;
+  margin-top: 34px;
+}

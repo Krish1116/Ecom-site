@@ -2,7 +2,7 @@ import productsArr from "../Data/item.json";
 import marchItem from "../Data/MarchItem.json";
 import { Col, Row, Button } from "react-bootstrap";
 import "./Store.css";
-import { ProductItem } from "../ProductItem";
+import { ProductItem } from "../Product/ProductItem";
 import { useProductCart } from "../CartProvider";
 
 export function Store() {

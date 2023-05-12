@@ -25,7 +25,7 @@ const NotFund = () => {
               <h1 className="main-heading">404</h1>
               <h2>we couldn't find this page.</h2>
               <div className="text-center mt-4 mb-5">
-                <Link to="/">
+                <Link to="/home">
                   <Button className="ml-4 bg-primary">Go to Home</Button>
                 </Link>
               </div>

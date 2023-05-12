@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import productsArr from "../Data/item.json";
 import marchItem from "../Data/MarchItem.json";
-import SinglePageData from "../SinglePageData";
+import SinglePageData from "../Product/SinglePageData";
 
 const StoreInfo = () => {
   const { store_id } = useParams();

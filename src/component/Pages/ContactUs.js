@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUsInfo from "../ContactUsInfo";
+import ContactUsInfo from "../contactus/ContactUsInfo";
 
 const ContactUs = () => {
   async function addInfoHandler(info) {
