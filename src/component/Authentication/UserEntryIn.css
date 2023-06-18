@@ -1,0 +1,28 @@
+.music-title-container {
+  text-align: center;
+  position: relative;
+  top: 2px;
+}
+
+.box {
+  position: relative;
+  margin: 44px;
+}
+
+.link {
+  text-align: center;
+}
+@media only screen and (max-width: 992px) {
+  .music-title-container {
+    /* color: blueviolet; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: -12px !important;
+  }
+  .box {
+    position: relative;
+    margin: 78px;
+  }
+  .label {
+    min-width: 80%;
+  }
+}

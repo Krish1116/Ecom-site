@@ -5,7 +5,7 @@ import "./Store.css";
 import { ProductItem } from "../Product/ProductItem";
 import { useProductCart } from "../CartProvider";
 
-export function Store() {
+function Store() {
   const { openCart } = useProductCart();
 
   return (
@@ -40,3 +40,5 @@ export function Store() {
     </>
   );
 }
+
+export default Store;

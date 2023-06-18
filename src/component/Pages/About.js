@@ -1,6 +1,6 @@
 import "./About.css";
 
-export function About() {
+function About() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <div className="text-white title">
@@ -48,3 +48,5 @@ export function About() {
     </div>
   );
 }
+
+export default About;

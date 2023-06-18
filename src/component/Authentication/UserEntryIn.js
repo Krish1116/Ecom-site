@@ -5,14 +5,15 @@ import { useRef } from "react";
 import { Alert, Button, Form, Spinner, FloatingLabel } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "./AuthContext";
+import "./UserEntryIn.css";
 
 const UserEntryIn = () => {
-  // const nameInputRef = useRef();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,16 +23,12 @@ const UserEntryIn = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // const enteredName = nameInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    console.log(
-      "Submitting form with data: ",
-      // enteredName,
-      enteredEmail,
-      enteredPassword
-    );
+    console.log("Submitting form with data: ", enteredEmail, enteredPassword);
     setIsLoading(true);
+    setIsAuthenticated(true);
+
     let url;
     if (isLogin) {
       url =
@@ -44,7 +41,6 @@ const UserEntryIn = () => {
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
-        // name: enteredName,
         email: enteredEmail,
         password: enteredPassword,
         returnSecureToken: true,
@@ -56,6 +52,7 @@ const UserEntryIn = () => {
         emailInputRef.current.value = "";
         passwordInputRef.current.value = "";
         if (res.ok) {
+          navigate("/store");
           return res.json();
         } else {
           return res.json().then((data) => {
@@ -81,15 +78,17 @@ const UserEntryIn = () => {
           navigate("/store");
         }
       })
-      .catch((err) => setResponse(err.message));
+      .catch((err) => {
+        setResponse(err.message);
+        setTimeout(() => {
+          setResponse(null);
+        }, 5000);
+      });
   };
 
   return (
     <>
-      <div
-        className="music-title-container"
-        style={{ position: "absolute", top: "100px", right: "35%" }}
-      >
+      <div className="music-title-container">
         {" "}
         {isLogin ? (
           <span className="text-center fs-2">Login Generics Dashboard</span>
@@ -101,86 +100,37 @@ const UserEntryIn = () => {
       <Form
         className="box"
         onSubmit={submitHandler}
-        style={{ position: "relative", margin: "102px" }}
+        // style={{ position: "relative", margin: "102px" }}
       >
-        {/* {!isLogin && (
-          <FloatingLabel
-            controlId="floatingPassword"
-            label="Name (required)"
-            className="mb-3 w-50 mx-auto"
-          >
-            <Form.Control
-              type="text"
-              placeholder="Name"
-              className="lbl"
-              ref={nameInputRef}
-            />
-          </FloatingLabel>
-        )} */}
         <FloatingLabel
           controlId="floatingInput"
           label="Email address (required)"
-          className="mb-3 w-50 mx-auto"
+          className="mb-3 w-50 mx-auto label"
         >
           <Form.Control
             type="email"
             placeholder="name@example.com"
-            className="lbl"
             ref={emailInputRef}
           />
         </FloatingLabel>
         <FloatingLabel
           controlId="floatingPassword"
           label="Password (required)"
-          className="w-50 mx-auto"
+          className="w-50 mx-auto label"
         >
           <Form.Control
             type="password"
             placeholder="password"
-            className="lbl"
             ref={passwordInputRef}
           />
         </FloatingLabel>
-        {/* <div className="d-flex justify-content-center">
-          {isLogin ? (
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              className="mt-3 w-50 mb-5 "
-            >
-              Login
-            </Button>
-          ) : (
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              className="mt-3 w-50 mb-5 "
-            >
-              Create Your Account
-            </Button>
-          )}
-          {isLoading && (
-            <div className="row align-items-center mt-4 mt-3 w-50 mb-5">
-              <div className="col-auto">
-                <h5>Loading</h5>
-              </div>
-              <div className="col-auto">
-                <Spinner animation="border" role="status">
-                  <span className="visually-hidden"></span>
-                </Spinner>
-              </div>
-            </div>
-          )} */}
-        {/* </div> */}
         <div className="d-flex justify-content-center">
-          {!isLoading && (
+          {!isLoading && !isAuthenticated && (
             <Button
               type="submit"
               variant="primary"
               size="lg"
-              className="mt-3 w-50 mb-5 "
+              className="mt-3 w-50 mb-3 label"
             >
               {isLogin ? "Login" : "Create Your Account"}
             </Button>
@@ -198,10 +148,10 @@ const UserEntryIn = () => {
             </div>
           )}
         </div>
-        <div style={{ textAlign: "center" }}>
+        <div className="link">
           <Link
             style={{
-              fontSize: "medium",
+              fontSize: "large",
               fontWeight: "bold",
             }}
             onClick={switchSignInToLogIn}

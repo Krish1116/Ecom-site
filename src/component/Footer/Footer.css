@@ -7,6 +7,8 @@
   font-size: 57px;
   display: flex;
   align-items: center;
+  position: relative;
+  bottom: -22px;
 }
 
 .footer-title {
@@ -14,23 +16,45 @@
   right: 64%;
 }
 
-.img-1 {
+.imgs-icon {
   height: 27px;
   position: relative;
-  left: -662%;
-  bottom: -15px;
 }
 
-.img-2 {
-  position: relative;
-  height: 28px;
-  left: -685%;
-  bottom: -15px;
+.img-container {
+  position: absolute;
+  left: 84%;
+  display: flex;
+  flex-flow: wrap;
+  width: 162px;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: -14px;
 }
 
-.img-3 {
-  position: relative;
-  height: 27px;
-  left: -489%;
-  bottom: -15px;
+@media only screen and (max-width: 992px) {
+  .footer-title {
+    position: absolute;
+    right: 60%;
+  }
+
+  .img-container {
+    position: absolute;
+    left: 73%;
+    display: flex;
+    flex-flow: wrap;
+    width: 206px;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .imgs-icon {
+    height: 35px;
+    position: relative;
+  }
+
+  .footer {
+    position: relative;
+    bottom: -30px;
+  }
 }

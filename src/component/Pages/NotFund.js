@@ -15,6 +15,7 @@ const NotFund = () => {
           <div className="col-lg-6 col-12">
             <div className="col-md-12">
               <img
+                alt="Page not Found"
                 src="https://raw.githubusercontent.com/Rustcodeweb/404-Error-Page-Design/main/image.png"
                 width="100%"
               />
@@ -37,4 +38,4 @@ const NotFund = () => {
   );
 };
 
-export { NotFund };
+export default NotFund;

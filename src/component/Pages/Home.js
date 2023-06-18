@@ -40,7 +40,7 @@ let tourdates = [
   },
 ];
 
-export function Home() {
+function Home() {
   return (
     <div>
       <div className="text-white title-1">
@@ -75,3 +75,4 @@ export function Home() {
     </div>
   );
 }
+export default Home;

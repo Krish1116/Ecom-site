@@ -126,10 +126,26 @@ span {
 .product-names {
   margin-bottom: 10px;
   font-size: 23px;
+  width: 215%;
+  display: flex;
+  justify-content: center;
 }
 
 .album {
   position: absolute;
   top: -32%;
   font-size: 34px;
+}
+
+.addCart {
+  position: relative;
+  top: 60px;
+  right: 83px;
+}
+
+.abtButton {
+  position: relative;
+  top: 71px;
+  right: 83px;
+  width: 110%;
 }

@@ -1,20 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useProductCart } from "../CartProvider";
+import React, { useState } from "react";
 
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},
-  // cartQuentity: 0,
-  // setCartQuantity: () => {},
 });
 
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
-  // const { cartItems, setCartItems } = useProductCart();
-  // const [cartQuantity, setCartQuantity] = useState(0);
 
   // default js trick...
   const userIsLoggedIn = !!token; //it's convert the value in true or false
@@ -24,54 +19,42 @@ export const AuthContextProvider = (props) => {
   const logInHandler = (token) => {
     setToken(token);
     localStorage.setItem("token", token);
-    // const storedCartQuentity = localStorage.getItem("cartQuentity");
-    // if (storedCartQuentity) {
-    //   setCartQuantity(parseInt(storedCartQuentity));
-    // }
+    localStorage.setItem("loginTime", Date.now());
   };
 
   const logOutHandler = () => {
     setToken(null);
     localStorage.removeItem("token");
-    // localStorage.setItem("cartQuentity", cartQuantity);
-    // setCartQuantity(0);
     localStorage.removeItem("shoping-cart");
+    localStorage.removeItem("loginTime");
   };
 
-  useEffect(() => {
-    const loginTime = localStorage.getItem("loginTime");
-    // console.log("Login time: ", loginTime);
-    const LOGOUT_TIME = 5 * 60 * 1000; // 5 minutes in milliseconds
+  // useEffect(() => {
+  // this is not going to navigate so that this function will not solve
+  //   const loginTime = localStorage.getItem("loginTime");
+  //   // console.log("Login time: ", loginTime);
+  //   const LOGOUT_TIME = 5 * 60 * 1000; // 5 minutes in milliseconds
 
-    if (loginTime) {
-      const timeElapsed = Date.now() - loginTime;
-      // console.log(Date.now(), ">>>>>", loginTime, ">>>>>", timeElapsed);
-      // check if the token is expired
-      if (timeElapsed > LOGOUT_TIME) {
-        logOutHandler();
-      } else {
-        const timeOut = setTimeout(() => {
-          logOutHandler();
-        }, LOGOUT_TIME - timeElapsed); //set the timeout for the reamining time
-        return () => clearTimeout(timeOut); //clear the timeout when the component unmounts
-      }
-    }
-
-    // const updatedCartQuantity = cartItems.reduce(
-    //   (quantity, item) => item.quantity + quantity,
-    //   0
-    // );
-    // setCartQuantity(updatedCartQuantity);
-    // localStorage.setItem("cartQuantity", updatedCartQuantity);
-  }, []);
+  //   if (loginTime) {
+  //     const timeElapsed = Date.now() - loginTime;
+  //     console.log(Date.now(), ">>>>>", loginTime, ">>>>>", timeElapsed);
+  //     // check if the token is expired
+  //     if (timeElapsed > LOGOUT_TIME) {
+  //       logOutHandler();
+  //     } else {
+  //       const timeOut = setTimeout(() => {
+  //         logOutHandler();
+  //       }, LOGOUT_TIME - timeElapsed); //set the timeout for the reamining time
+  //       return () => clearTimeout(timeOut); //clear the timeout when the component unmounts
+  //     }
+  //   }
+  // }, []);
 
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: logInHandler,
     logout: logOutHandler,
-    // cartQuantity: cartQuantity,
-    // setCartQuantity: setCartQuantity,
   };
   return (
     <AuthContext.Provider value={contextValue}>

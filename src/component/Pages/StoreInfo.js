@@ -7,8 +7,8 @@ import SinglePageData from "../Product/SinglePageData";
 const StoreInfo = () => {
   const { store_id } = useParams();
   const product =
-    productsArr.find((item) => item.id == store_id) ||
-    marchItem.find((item) => item.id == store_id) ||
+    productsArr.find((item) => item.id === store_id) ||
+    marchItem.find((item) => item.id === store_id) ||
     {};
 
   if (!product) {
@@ -28,4 +28,4 @@ const StoreInfo = () => {
   );
 };
 
-export { StoreInfo };
+export default StoreInfo;

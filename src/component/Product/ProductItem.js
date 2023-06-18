@@ -52,12 +52,12 @@ export function ProductItem({ id, album, title, price, imageUrl }) {
         </div>
         <div>
           {quantity === 0 ? (
-            <Button className="w-100 mt-0" onClick={handleAddToCart}>
+            <Button className="w-100 mt-0 addCart" onClick={handleAddToCart}>
               + Add To Cart
             </Button>
           ) : (
             <div
-              className="d-flex align-items-center flex-column"
+              className="d-flex align-items-center flex-column abtButton"
               style={{ gap: ".5rem" }}
             >
               <div

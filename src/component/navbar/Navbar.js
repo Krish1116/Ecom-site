@@ -1,22 +1,24 @@
 import { Container, Button, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useProductCart } from "../CartProvider";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import AuthContext from "../Authentication/AuthContext";
 // import { auth } from "../FireBase/FireBase";
 
-export function Navbar() {
+function Navbar() {
   const { openCart, cartQuantity } = useProductCart();
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
+  const navigate = useNavigate();
   const logOutHandler = () => {
     authCtx.logout({ item: [] });
     // authCtx.items = [];
     localStorage.removeItem("token");
     localStorage.removeItem("emailID");
+    navigate("/");
   };
 
   // useEffect(() => {
@@ -77,20 +79,18 @@ export function Navbar() {
               </Nav.Link>
             )}
           </Nav>
-          <Button className="cart" onClick={openCart}>
-            <span className="me-2">Cart</span>
-            <AiOutlineShoppingCart size={20} />
-            <div className="rounded-circle bg-danger d-flex justify-content-center counter">
-              {cartQuantity}
-            </div>
-          </Button>
-          {isLoggedIn ? (
+          {isLoggedIn && (
+            <Button className="cart" onClick={openCart}>
+              <span className="me-2">Cart</span>
+              <AiOutlineShoppingCart size={20} />
+              <div className="rounded-circle bg-danger d-flex justify-content-center counter">
+                {cartQuantity}
+              </div>
+            </Button>
+          )}
+          {isLoggedIn && (
             <Link to="/">
               <Button onClick={logOutHandler}> Log out</Button>
-            </Link>
-          ) : (
-            <Link to="/">
-              <Button className="ml-4 ">Sign Up</Button>
             </Link>
           )}
         </Container>
@@ -98,3 +98,4 @@ export function Navbar() {
     </>
   );
 }
+export default Navbar;
